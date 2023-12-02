@@ -1,6 +1,6 @@
 package com.imob.imobapi.model.enums;
 
-public enum TenantStatus {
+public enum UserStatus {
     deactivate,
     active
 }

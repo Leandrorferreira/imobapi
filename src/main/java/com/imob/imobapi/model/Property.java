@@ -18,9 +18,6 @@ public class Property implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @Column(nullable = false)
-    private String type;
-
     @Column(length = 50)
     private String description;
 
@@ -52,5 +49,9 @@ public class Property implements Serializable {
 
     private Date lastUpdate;
 
-    private String owner;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "user_profile_id")
+//    private PropertyOwner owner;
+//
+//    private Tenant tenant;
 }
