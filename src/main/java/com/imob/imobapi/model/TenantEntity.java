@@ -13,4 +13,8 @@ public class TenantEntity extends BaseUserEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "property_id")
+    private PropertyEntity propertyTenant;
 }

@@ -1,5 +1,6 @@
 package com.imob.imobapi.controller;
 
+import com.imob.imobapi.controller.mapper.PropertyMapper;
 import com.imob.imobapi.dtos.PropertyDTO;
 import com.imob.imobapi.model.PropertyEntity;
 import com.imob.imobapi.service.PropertyService;
@@ -21,6 +22,9 @@ public class PropertyController {
     @Autowired
     private PropertyService productService;
 
+    @Autowired
+    private PropertyMapper mapper;
+
     @GetMapping
     public ResponseEntity<List<PropertyEntity>> findAll(){
         return ResponseEntity.status(HttpStatus.OK).body(productService.findAll());
@@ -33,8 +37,7 @@ public class PropertyController {
 
     @PostMapping
     public ResponseEntity<PropertyEntity> create(@RequestBody @Valid PropertyDTO dto){
-        var property = new PropertyEntity();
-        BeanUtils.copyProperties(dto, property);
+        PropertyEntity property = mapper.dtoToEntity(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(productService.save(property));
     }
 
