@@ -11,28 +11,22 @@ import java.math.BigDecimal;
 public record PropertyDTO(
         @NotBlank
         @Size(max = 100)
-        String description
-        //,
-//        @NotBlank
-//        @Size(max = 100)
-//        String address,
-//        @NotBlank
-//        PropertyType propertyType,
-//        @NotBlank
-//        Integer numberOfBedrooms,
-//
-//        @NotBlank
-//        Integer numberOfBathrooms,
-//
-//        @NotBlank
-//        BigDecimal totalArea,
-//
-//        @NotBlank
-//        Integer constructionYear,
-//
-//        OccupancyStatus occupancyStatus,
-//
-//        @Column(nullable = false)
-//        BigDecimal price
+        String description,
+        @NotBlank
+        @Size(max = 100)
+        String address,
+        @NotBlank
+        PropertyType propertyType,
+        @NotBlank
+        Integer numberOfBedrooms,
+        @NotBlank
+        Integer numberOfBathrooms,
+        @NotBlank
+        BigDecimal totalArea,
+        @NotBlank
+        Integer constructionYear,
+        OccupancyStatus occupancyStatus,
+        @Column(nullable = false)
+        BigDecimal price
 ) {
 }
