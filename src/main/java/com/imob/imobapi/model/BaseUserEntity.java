@@ -2,8 +2,10 @@ package com.imob.imobapi.model;
 
 import com.imob.imobapi.model.enums.UserStatus;
 import jakarta.persistence.Column;
+import lombok.Data;
 
-public abstract class User {
+@Data
+public abstract class BaseUserEntity {
     @Column(nullable = false, length = 100)
     private String firstName;
 

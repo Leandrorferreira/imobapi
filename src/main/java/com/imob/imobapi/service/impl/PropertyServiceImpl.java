@@ -1,6 +1,6 @@
 package com.imob.imobapi.service.impl;
 
-import com.imob.imobapi.model.Property;
+import com.imob.imobapi.model.PropertyEntity;
 import com.imob.imobapi.repository.PropertyRepository;
 import com.imob.imobapi.service.PropertyService;
 import jakarta.transaction.Transactional;
@@ -18,23 +18,23 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     @Transactional
-    public Property save(Property property) {
+    public PropertyEntity save(PropertyEntity property) {
         return repository.save(property);
     }
 
     @Override
-    public List<Property> findAll() {
+    public List<PropertyEntity> findAll() {
         return repository.findAll();
     }
 
     @Override
-    public Optional<Property> findById(UUID id) {
+    public Optional<PropertyEntity> findById(UUID id) {
         return repository.findById(id);
     }
 
     @Override
     @Transactional
-    public Property update(Property property) {
+    public PropertyEntity update(PropertyEntity property) {
         return repository.save(property);
     }
 

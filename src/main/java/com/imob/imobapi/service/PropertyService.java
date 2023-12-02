@@ -1,19 +1,19 @@
 package com.imob.imobapi.service;
 
-import com.imob.imobapi.model.Property;
+import com.imob.imobapi.model.PropertyEntity;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 public interface PropertyService {
-    Property save(Property property);
+    PropertyEntity save(PropertyEntity property);
 
-    List<Property> findAll();
+    List<PropertyEntity> findAll();
 
-    Optional<Property> findById(UUID id);
+    Optional<PropertyEntity> findById(UUID id);
 
-    Property update(Property property);
+    PropertyEntity update(PropertyEntity property);
 
     void deleteById(UUID id);
 }

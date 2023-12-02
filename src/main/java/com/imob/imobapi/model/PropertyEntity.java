@@ -6,19 +6,18 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.UUID;
 
 @Data
 @Entity(name="PROPERTY")
-public class Property implements Serializable {
+public class PropertyEntity extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @Column(length = 50)
+    @Column(length = 100)
     private String description;
 
     @Column(nullable = false, length = 100)
@@ -45,13 +44,11 @@ public class Property implements Serializable {
     @Column(nullable = false)
     private BigDecimal price;
 
-    private Date creatingDate;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "owner_id")
+    private PropertyOwnerEntity owner;
 
-    private Date lastUpdate;
-
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "user_profile_id")
-//    private PropertyOwner owner;
-//
-//    private Tenant tenant;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "tenant_id")
+    private TenantEntity tenant;
 }
