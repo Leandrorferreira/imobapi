@@ -1,13 +1,16 @@
 # IMOB API
 
-### Tech
+### Technical Information
 - Java 17
 - Spring Boot 3
 - PostgreSQL
 - Postman
 - Docker
 
-#### Using Docker to create postgres database
+### Postman Collection
+``` documentation/imobapi.postman_collection ```
+
+### Using Docker to create postgres database
 
 - Access the directory documentation:
 ```  /docker-imob ```
