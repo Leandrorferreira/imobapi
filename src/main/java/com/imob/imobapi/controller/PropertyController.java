@@ -1,7 +1,10 @@
 package com.imob.imobapi.controller;
 
+import com.imob.imobapi.dtos.PropertyDTO;
 import com.imob.imobapi.model.Property;
 import com.imob.imobapi.service.PropertyService;
+import jakarta.validation.Valid;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,13 +32,17 @@ public class PropertyController {
     }
 
     @PostMapping
-    public ResponseEntity<Property> create(@RequestBody Property product){
-        return ResponseEntity.status(HttpStatus.CREATED).body(productService.save(product));
+    public ResponseEntity<Property> create(@RequestBody @Valid PropertyDTO dto){
+        var property = new Property();
+        BeanUtils.copyProperties(dto, property);
+        return ResponseEntity.status(HttpStatus.CREATED).body(productService.save(property));
     }
 
     @PutMapping
-    public ResponseEntity<Property> update(@RequestBody Property product){
-        return ResponseEntity.status(HttpStatus.OK).body(productService.update(product));
+    public ResponseEntity<Property> update(@RequestBody @Valid PropertyDTO dto){
+        var property = new Property();
+        BeanUtils.copyProperties(dto, property);
+        return ResponseEntity.status(HttpStatus.OK).body(productService.update(property));
     }
 
     @DeleteMapping("/{id}")
