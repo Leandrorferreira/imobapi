@@ -1,7 +1,7 @@
 package com.imob.imobapi.controller;
 
 import com.imob.imobapi.dtos.PropertyDTO;
-import com.imob.imobapi.model.Property;
+import com.imob.imobapi.model.PropertyEntity;
 import com.imob.imobapi.service.PropertyService;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
@@ -22,25 +22,25 @@ public class PropertyController {
     private PropertyService productService;
 
     @GetMapping
-    public ResponseEntity<List<Property>> findAll(){
+    public ResponseEntity<List<PropertyEntity>> findAll(){
         return ResponseEntity.status(HttpStatus.OK).body(productService.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Property>> findById(@PathVariable UUID id){
+    public ResponseEntity<Optional<PropertyEntity>> findById(@PathVariable UUID id){
         return ResponseEntity.status(HttpStatus.OK).body(productService.findById(id));
     }
 
     @PostMapping
-    public ResponseEntity<Property> create(@RequestBody @Valid PropertyDTO dto){
-        var property = new Property();
+    public ResponseEntity<PropertyEntity> create(@RequestBody @Valid PropertyDTO dto){
+        var property = new PropertyEntity();
         BeanUtils.copyProperties(dto, property);
         return ResponseEntity.status(HttpStatus.CREATED).body(productService.save(property));
     }
 
     @PutMapping
-    public ResponseEntity<Property> update(@RequestBody @Valid PropertyDTO dto){
-        var property = new Property();
+    public ResponseEntity<PropertyEntity> update(@RequestBody @Valid PropertyDTO dto){
+        var property = new PropertyEntity();
         BeanUtils.copyProperties(dto, property);
         return ResponseEntity.status(HttpStatus.OK).body(productService.update(property));
     }
