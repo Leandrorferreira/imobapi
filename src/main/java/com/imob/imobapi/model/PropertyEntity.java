@@ -3,14 +3,19 @@ package com.imob.imobapi.model;
 import com.imob.imobapi.model.enums.PropertyType;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
+@EntityListeners(AuditingEntityListener.class)
 @Entity(name="PROPERTY")
-public class PropertyEntity extends BaseEntity implements Serializable {
+public class PropertyEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -51,4 +56,10 @@ public class PropertyEntity extends BaseEntity implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "tenant_id")
     private TenantEntity tenant;
+
+    @CreatedDate
+    private LocalDateTime created;
+
+    @LastModifiedDate
+    private LocalDateTime updated;
 }
