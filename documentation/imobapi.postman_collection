@@ -1,0 +1,18 @@
+{
+	"info": {
+		"_postman_id": "bac6b9d8-a7ec-41ad-b332-8d06238983e1",
+		"name": "IMOBAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7075463"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
