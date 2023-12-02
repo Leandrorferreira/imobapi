@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
-@RestController("api/v1/properties")
+@RestController
+@RequestMapping("api/v1/properties")
 public class PropertyController {
 
     @Autowired
@@ -22,7 +24,7 @@ public class PropertyController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Property>> findById(@PathVariable Long id){
+    public ResponseEntity<Optional<Property>> findById(@PathVariable UUID id){
         return ResponseEntity.status(HttpStatus.OK).body(productService.findById(id));
     }
 
@@ -37,7 +39,7 @@ public class PropertyController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long id){
+    public ResponseEntity<?> delete(@PathVariable UUID id){
         productService.deleteById(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
