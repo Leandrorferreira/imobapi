@@ -3,6 +3,10 @@
 ### Technical Information
 - Java 17
 - Spring Boot 3
+- MapStruct
+- Lombok
+- Jakarta Valitadion
+- Spring Data JPA
 - PostgreSQL
 - Postman
 - Docker
