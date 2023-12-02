@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
+
 @Service
 public class PropertyServiceImpl implements PropertyService {
     @Autowired
@@ -24,7 +26,7 @@ public class PropertyServiceImpl implements PropertyService {
     }
 
     @Override
-    public Optional<Property> findById(Long id) {
+    public Optional<Property> findById(UUID id) {
         return repository.findById(id);
     }
 
@@ -34,7 +36,7 @@ public class PropertyServiceImpl implements PropertyService {
     }
 
     @Override
-    public void deleteById(Long id) {
+    public void deleteById(UUID id) {
         repository.deleteById(id);
     }
 }

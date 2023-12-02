@@ -4,15 +4,16 @@ import com.imob.imobapi.model.Property;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public interface PropertyService {
     Property save(Property property);
 
     List<Property> findAll();
 
-    Optional<Property> findById(Long id);
+    Optional<Property> findById(UUID id);
 
     Property update(Property property);
 
-    void deleteById(Long id);
+    void deleteById(UUID id);
 }
